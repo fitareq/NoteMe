@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    android:background="#EBEBEB"
+    android:layout_margin="5dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task Name: "
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/task_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/textview1"
+            android:text="NoteMe Project "
+            android:textColor="#AE7A7A"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Created date:  "
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/textview1"/>
+
+        <TextView
+            android:id="@+id/created_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview1"
+            android:layout_toEndOf="@+id/textview2"
+            android:text="02.11.2021 "
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textview3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deadline:  "
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/textview2"/>
+
+        <TextView
+            android:id="@+id/deadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview2"
+            android:layout_toEndOf="@+id/textview3"
+            android:text="22.11.2021 "
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/edit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_edit_24"
+            android:layout_below="@id/textview3"
+            android:layout_toLeftOf="@+id/delete_btn"
+            />
+        <ImageView
+            android:id="@+id/delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_delete_24"
+            android:layout_below="@id/textview3"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

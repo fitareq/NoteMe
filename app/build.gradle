@@ -25,6 +25,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures{
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -35,4 +38,17 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation "androidx.room:room-runtime:2.3.0"
+    implementation "androidx.room:room-common:2.3.0"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor "androidx.room:room-compiler:2.3.0"
+    androidTestImplementation "androidx.room:room-testing:2.3.0"
+
+    // Lifecycle components
+    annotationProcessor "androidx.lifecycle:lifecycle-common-java8:2.4.0"
+    //view model
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.4.0"
+    //live data
+    implementation "androidx.lifecycle:lifecycle-livedata:2.4.0"
 }
