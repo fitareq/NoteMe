@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/variant"
-    tools:context=".MainActivity">
+    android:background="@color/variant">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/all_notes"
@@ -19,7 +17,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="65dp"
         android:layout_marginEnd="10dp"
-        android:src="@drawable/icons8_plus_math_30"
+        android:src="@drawable/ic_baseline_add_24"
         />
 
 

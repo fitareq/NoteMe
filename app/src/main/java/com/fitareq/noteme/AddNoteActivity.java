@@ -3,16 +3,22 @@ package com.fitareq.noteme;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+
+import com.fitareq.noteme.databinding.ActivityAddNoteBinding;
 
 
 public class AddNoteActivity extends AppCompatActivity {
 
+    private ActivityAddNoteBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_note);
+        binding = ActivityAddNoteBinding.inflate(getLayoutInflater());
+        View v = binding.getRoot();
+        setContentView(v);
     }
 
 

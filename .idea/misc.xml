@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/NoteMe/app/src/main/res/drawable/bottom_nav_back.xml" value="0.1685185185185185" />
+        <entry key="..\:/NoteMe/app/src/main/res/drawable/textview_back.xml" value="0.1675925925925926" />
         <entry key="..\:/NoteMe/app/src/main/res/layout/activity_add_note.xml" value="0.225" />
         <entry key="..\:/NoteMe/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/NoteMe/app/src/main/res/layout/activity_splash.xml" value="0.17" />
