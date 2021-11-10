@@ -92,8 +92,8 @@ public class mAdapter extends RecyclerView.Adapter<mAdapter.mHolder> {
     }
 
     public interface AdapterOnClickListener{
-        void itemClickListener(int id);
-        void editClickListener(int id);
+        void itemClickListener(Long id);
+        void editClickListener(Long id);
         void deleteClickListener(DataClass dataClass);
     }
 

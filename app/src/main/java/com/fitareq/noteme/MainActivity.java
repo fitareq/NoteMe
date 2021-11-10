@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity implements mAdapter.AdapterO
 
 
     @Override
-    public void itemClickListener(int id) {
+    public void itemClickListener(Long id) {
 
     }
 
 
 
     @Override
-    public void editClickListener(int id) {
+    public void editClickListener(Long id) {
 
     }
 

@@ -1,6 +1,8 @@
 package com.fitareq.noteme;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 
@@ -8,8 +10,9 @@ import androidx.room.PrimaryKey;
 public class DataClass {
 
 
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+    @PrimaryKey
+    @NonNull
+    private Long id;
     private String taskName;
     private String createdDate;
     private String deadline;
@@ -20,9 +23,8 @@ public class DataClass {
     private String url;
 
 
-
-    public DataClass(String taskName, String createdDate, String deadline, String status, String description, String email, String phone, String url) {
-
+    public DataClass(@NonNull Long id, String taskName, String createdDate, String deadline, String status, String description, String email, String phone, String url) {
+        this.id = id;
         this.taskName = taskName;
         this.createdDate = createdDate;
         this.deadline = deadline;
@@ -33,70 +35,40 @@ public class DataClass {
         this.url = url;
     }
 
-
-
-    public int getId() {
-
+    @NonNull
+    public Long getId() {
         return id;
     }
 
-
-
     public String getTaskName() {
-
         return taskName;
     }
 
-
-
     public String getCreatedDate() {
-
         return createdDate;
     }
 
-
-
     public String getDeadline() {
-
         return deadline;
     }
 
-
-
     public String getStatus() {
-
         return status;
     }
 
-
-
     public String getDescription() {
-
         return description;
     }
 
-
-
     public String getEmail() {
-
         return email;
     }
 
-
-
     public String getPhone() {
-
         return phone;
     }
 
-
-
     public String getUrl() {
-
         return url;
     }
-
-
-
-
 }
