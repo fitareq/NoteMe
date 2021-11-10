@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements mAdapter.AdapterO
 
         viewModel = new ViewModelProvider(this).get(mViewModel.class);
 
-        binding.allNotes.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+        binding.allNotes.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         viewModel.getData().observe(this, dataClasses -> {
             adapter = new mAdapter(dataClasses,this);
             binding.allNotes.setAdapter(adapter);

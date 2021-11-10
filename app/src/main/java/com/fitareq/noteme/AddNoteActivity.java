@@ -7,6 +7,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class AddNoteActivity extends AppCompatActivity {
     private ActivityAddNoteBinding binding;
     private mViewModel viewModel;
     String taskName, taskDescription, taskDeadline, taskStatus, taskEmail = null, taskPhone= null, taskUrl = null;
+    String[] spinnerItem = {"Open", "In-Progress", "Test", "Done"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class AddNoteActivity extends AppCompatActivity {
 
 
         viewModel = new ViewModelProvider(this).get(mViewModel.class);
+        binding.taskStatusSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerItem));
 
 
         binding.addTaskSubmitBtn.setOnClickListener(v1 -> {
@@ -43,7 +46,7 @@ public class AddNoteActivity extends AppCompatActivity {
             taskName = binding.taskNameEdtx.getText().toString();
             taskDescription = binding.descriptionEdtx.getText().toString();
             taskDeadline = binding.taskDate.getText().toString();
-            taskStatus = binding.taskStatus.getText().toString();
+            taskStatus = binding.taskStatusSpinner.getSelectedItem().toString();
             DataClass dataClass = new DataClass(System.currentTimeMillis(), taskName, createdDate, taskDeadline, taskStatus, taskDescription, taskEmail, taskPhone, taskUrl);
            /* dataClass.setTaskName(taskName);
             dataClass.setDescription(taskDescription);
@@ -58,6 +61,16 @@ public class AddNoteActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         });
 
+        binding.mailImgview.setOnClickListener(v1 -> {
+
+        });
+        binding.phoneImgview.setOnClickListener(v1 -> {
+
+        });
+        binding.urlImgview.setOnClickListener(v1 -> {
+
+        });
+
 
         binding.taskSetDate.setOnClickListener(v1 -> {
             Calendar c = Calendar.getInstance();
@@ -68,7 +81,7 @@ public class AddNoteActivity extends AppCompatActivity {
             DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    binding.taskDate.setText(dayOfMonth+"."+month+"."+year);
+                    binding.taskDate.setText(dayOfMonth+"."+(month+1)+"."+year);
                 }
             },mYear,mMonth,mDay);
             datePickerDialog.show();

@@ -112,18 +112,24 @@
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
-                <TextView
-                    android:id="@+id/task_status"
-                    android:text="open"
-                    android:layout_width="150dp"
+                <FrameLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/textview_back"
-                    android:padding="5dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_down_24"
-                    android:gravity="center"
-                    android:textColor="@color/primary"/>
+                    >
+                    <Spinner
+                        android:id="@+id/task_status_spinner"
+                        android:text="open"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/primary"
+                        />
+
+                </FrameLayout>
+
             </LinearLayout>
 
             <RelativeLayout
