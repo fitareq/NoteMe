@@ -14,7 +14,7 @@ import java.util.List;
 @Dao
 public interface DataDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insetNote(DataClass data);
 
     @Delete
@@ -25,5 +25,14 @@ public interface DataDao {
 
     @Query("SELECT * FROM note")
     LiveData<List<DataClass>> getAllNotes();
+
+    @Query("SELECT * FROM note WHERE id = :i")
+    LiveData<DataClass> getNotesDetails(Long i);
+
+    @Query("DELETE FROM note WHERE id = :i")
+    void deleteNotesDetails(Long i);
+
+    @Query("SELECT * FROM note WHERE status = :i")
+    LiveData<List<DataClass>> getSpecificNotesDetails(String i);
 
 }

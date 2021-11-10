@@ -5,21 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/variant"
-    android:orientation="vertical"
-    tools:context=".DetailsActivity">
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/task_details_toolbar"
+        android:id="@+id/edit_task_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#EBEBEB">
 
         <TextView
-            android:id="@+id/task_details_toolbar_txview"
+            android:id="@+id/edit_task_toolbar_txview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Task Details"
+            android:text="Edit Task"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -28,127 +27,120 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:padding="5dp">
 
-        <ImageView
-            android:id="@+id/task_details_delete"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_baseline_delete_24" />
-
-        <RelativeLayout
-            android:id="@+id/details_date_container"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/task_details_delete">
+            android:layout_marginTop="10dp"
+            android:hint="Task Name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_task_name_edtx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/description_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_layout"
+            android:layout_marginTop="10dp"
+            android:hint="Write Description...">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_description_edtx"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <LinearLayout
+            android:id="@+id/deadline_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description_layout"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/txview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Created Date: "
+                android:text="Deadline: "
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/task_details_created_date"
+                android:id="@+id/edit_task_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/txview"
                 android:text="22.10.2021"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/edit_task_set_date"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/icons8_view_schedule_50" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/status_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/deadline_container"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical">
 
             <TextView
-                android:id="@+id/txview1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toStartOf="@+id/task_details_status"
                 android:text="Status: "
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/task_details_status"
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:text="Open"
-                android:textColor="@color/primary"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
+                android:background="@drawable/textview_back">
 
-        <TextView
-            android:id="@+id/task_details_note_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/details_date_container"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="15dp"
-            android:text="NoteMe Project"
-            android:textColor="#8c3c3c"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+                <Spinner
+                    android:id="@+id/edit_task_status_spinner"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="open"
+                    android:textColor="@color/primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txview2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/task_details_note_title"
-            android:layout_marginTop="15dp"
-            android:text="Description: "
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            </FrameLayout>
 
-        <TextView
-            android:id="@+id/task_details_note_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txview2"
-            android:layout_marginTop="15dp"
-            android:text="Description "
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+        </LinearLayout>
 
         <RelativeLayout
-            android:id="@+id/details_deadline_container"
+            android:id="@+id/imgview_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/task_details_note_description"
-            android:layout_marginTop="20dp">
-
-            <TextView
-                android:id="@+id/txview3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Created Date: "
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/task_details_deadline_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/txview3"
-                android:text="22.10.2021"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/task_details_imgview_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/details_deadline_container"
+            android:layout_below="@+id/status_container"
             android:layout_marginTop="25dp">
 
             <LinearLayout
@@ -159,7 +151,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/task_details_mail_imgview"
+                    android:id="@+id/edit_mail_imgview"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:src="@drawable/ic_email" />
@@ -169,7 +161,7 @@
                     android:layout_height="wrap_content"
                     android:text="E-mail"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -181,7 +173,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/task_details_phone_imgview"
+                    android:id="@+id/edit_phone_imgview"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:src="@drawable/ic_phone" />
@@ -191,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:text="Phone"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -203,9 +195,10 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/task_details_url_imgview"
+                    android:id="@+id/edit_url_imgview"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
                     android:src="@drawable/ic_url" />
 
                 <TextView
@@ -213,24 +206,22 @@
                     android:layout_height="wrap_content"
                     android:text="URL"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
-
         </RelativeLayout>
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/task_details_edit_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="65dp"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_baseline_edit_24"
-            />
-    </RelativeLayout>
 
+        <Button
+            android:id="@+id/edit_task_submit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="10dp"
+            android:text="Submit"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
 
 </LinearLayout>

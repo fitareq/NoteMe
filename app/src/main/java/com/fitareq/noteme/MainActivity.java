@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.fitareq.noteme.databinding.ActivityMainBinding;
 
@@ -32,12 +33,44 @@ public class MainActivity extends AppCompatActivity implements mAdapter.AdapterO
         viewModel = new ViewModelProvider(this).get(mViewModel.class);
 
         binding.allNotes.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        viewModel.getData().observe(this, dataClasses -> {
-            adapter = new mAdapter(dataClasses,this);
+        viewModel.getSpecificData("Open").observe(this,dataClasses -> {
+            adapter = new mAdapter(dataClasses, this);
             binding.allNotes.setAdapter(adapter);
         });
         binding.addNoteFab.setOnClickListener(v1 -> {
             startActivity(new Intent(getApplicationContext(), AddNoteActivity.class));
+        });
+
+        binding.bottomNav.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.nav_open:
+                    viewModel.getSpecificData("Open").observe(this,dataClasses -> {
+                        adapter = new mAdapter(dataClasses, this);
+                        binding.allNotes.setAdapter(adapter);
+                    });
+                    break;
+                case R.id.nav_in_progress:
+                    //viewModel.getSpecificData("Open").removeObservers(this);
+                    viewModel.getSpecificData("In-Progress").observe(this,dataClasses -> {
+                        adapter = new mAdapter(dataClasses, this);
+                        binding.allNotes.setAdapter(adapter);
+                    });
+                    break;
+                case R.id.nav_test:
+                    viewModel.getSpecificData("Test").observe(this,dataClasses -> {
+                        adapter = new mAdapter(dataClasses, this);
+                        binding.allNotes.setAdapter(adapter);
+                    });
+                    break;
+                case R.id.nav_done:
+                    viewModel.getSpecificData("Done").observe(this,dataClasses -> {
+                        adapter = new mAdapter(dataClasses, this);
+                        binding.allNotes.setAdapter(adapter);
+                    });
+                    break;
+            }
+            return true;
+
         });
 
     }
@@ -46,6 +79,9 @@ public class MainActivity extends AppCompatActivity implements mAdapter.AdapterO
 
     @Override
     public void itemClickListener(Long id) {
+        Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
 
     }
 
@@ -53,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements mAdapter.AdapterO
 
     @Override
     public void editClickListener(Long id) {
+        Intent intent = new Intent(getApplicationContext(), EditActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
 
     }
 

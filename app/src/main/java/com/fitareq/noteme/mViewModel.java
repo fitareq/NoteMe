@@ -23,7 +23,14 @@ public class mViewModel extends AndroidViewModel {
 
     }
 
+    public LiveData<List<DataClass>> getSpecificData(String status){
 
+        return repository.getSpecificData(status);
+    }
+    public LiveData<DataClass> getDetailsData(Long id){
+
+        return repository.getDetailsData(id);
+    }
 
     public LiveData<List<DataClass>> getData() {
 
@@ -35,6 +42,9 @@ public class mViewModel extends AndroidViewModel {
 
     public void deleteData(DataClass data) {
         repository.deleteData(data);
+    }
+    public void deleteDetailsData(Long id) {
+        repository.deleteDetailsData(id);
     }
     public void updateData(DataClass data) {
         repository.updateData(data);

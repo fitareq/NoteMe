@@ -20,7 +20,8 @@
             android:text="Task Name: "
             android:textStyle="bold"
             android:textSize="15sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            />
 
         <TextView
             android:id="@+id/task_name"
@@ -30,7 +31,8 @@
             android:text="NoteMe Project "
             android:textColor="#AE7A7A"
             android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
         <TextView
             android:id="@+id/textview2"
             android:layout_width="wrap_content"
@@ -39,7 +41,8 @@
             android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/black"
-            android:layout_below="@+id/textview1"/>
+            android:layout_below="@+id/textview1"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/created_date"
@@ -49,7 +52,8 @@
             android:layout_toEndOf="@+id/textview2"
             android:text="02.11.2021 "
             android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
         <TextView
             android:id="@+id/textview3"
             android:layout_width="wrap_content"
@@ -58,7 +62,8 @@
             android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/black"
-            android:layout_below="@+id/textview2"/>
+            android:layout_below="@+id/textview2"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/deadline"
@@ -68,7 +73,8 @@
             android:layout_toEndOf="@+id/textview3"
             android:text="22.11.2021 "
             android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
         <ImageView
             android:id="@+id/edit_btn"
             android:layout_width="wrap_content"

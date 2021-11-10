@@ -11,6 +11,7 @@ public class mRepository {
 
     private DataDao dataDao;
     private LiveData<List<DataClass>> data;
+    private LiveData<DataClass> detailsData;
 
     public mRepository(Application application) {
 
@@ -22,6 +23,14 @@ public class mRepository {
 
 
 
+    public LiveData<DataClass> getDetailsData(Long id){
+        detailsData = dataDao.getNotesDetails(id);
+        return detailsData;
+    }
+    public LiveData<List<DataClass>> getSpecificData(String status){
+
+        return dataDao.getSpecificNotesDetails(status);
+    }
     public LiveData<List<DataClass>> getData() {
 
         return data;
@@ -41,6 +50,14 @@ public class mRepository {
         LocalDatabase.databaseWriteExecutors.execute(()->
         {
             dataDao.deleteNote(data);
+        });
+
+    }
+    public void deleteDetailsData(Long id) {
+
+        LocalDatabase.databaseWriteExecutors.execute(()->
+        {
+            dataDao.deleteNotesDetails(id);
         });
 
     }
