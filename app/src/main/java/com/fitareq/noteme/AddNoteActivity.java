@@ -23,6 +23,7 @@ public class AddNoteActivity extends AppCompatActivity {
 
     private ActivityAddNoteBinding binding;
     private mViewModel viewModel;
+
     String taskName, taskDescription, taskDeadline, taskStatus, taskEmail = null, taskPhone= null, taskUrl = null;
     String[] spinnerItem = {"Open", "In-Progress", "Test", "Done"};
 
